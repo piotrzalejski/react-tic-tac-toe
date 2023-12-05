@@ -11,7 +11,8 @@ div.board{
 }
 
 main{
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 300px;
   margin: 50px auto 0;
   height: 100vh;
@@ -26,4 +27,34 @@ div.block{
   box-sizing: border-box;
   text-align: center;
   font-size: 4rem;
+}
+
+div.result{
+  border-radius: 2rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  padding: 10px;
+}
+
+div.result.green{
+  background-color: #5a5a;
+}
+
+div.result.red{
+  background-color: #a55;
+}
+
+button.reset{
+  background-color: #133;
+  color: #fff;
+  border-radius: 2rem;
+  border: none;
+  max-width: 100px;
+  margin-top: 1rem;
+  padding: .5rem;
+  align-self: center;
+}
+
+button.reset:hover{
+  background-color: #a33;
 }
