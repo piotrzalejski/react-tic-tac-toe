@@ -3,10 +3,11 @@
   --white: #FFFFFF;
   --pink: #D95995;
   --blue: #04B2D9;
+  --bg: #112233
 }
 
 body{
-  background-color: #123;
+  background-color: var(--bg);
   color: var(--white);
   font-family:"Comic Sans MS", sans-serif;
 }
