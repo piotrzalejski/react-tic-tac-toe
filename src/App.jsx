@@ -1,6 +1,6 @@
 import "./App.css";
-import Block from "./Block";
-import Board from "./Board";
+import Block from "./components/Block";
+import Board from "./components/Board";
 import { useState, useEffect } from "react";
 
 const defBlocks = () => new Array(9).fill(null);
@@ -27,7 +27,7 @@ export default function App() {
   function handleBlockClick(index) {
     const isPlayerTurn =
       blocks.filter((block) => block !== null).length % 2 === 0;
-    if (isPlayerTurn && !gameOver) {
+    if (isPlayerTurn && !gameOver && blocks[index] === null) {
       setBlocks((prevBlocks) => {
         const newBlocks = [...prevBlocks];
         newBlocks[index] = "x";
@@ -133,6 +133,7 @@ export default function App() {
 
   return (
     <main>
+      <h1>Tic-Tac-Toe</h1>
       <Board>
         {blocks.map((block, index) => (
           <Block
@@ -143,10 +144,8 @@ export default function App() {
           />
         ))}
       </Board>
-      {!!winner && winner == "x" && (
-        <div className="result green">You Won!</div>
-      )}
-      {!!winner && winner == "o" && <div className="result red">You Lost!</div>}
+      {!!winner && winner == "x" && <div className="result">You Won!</div>}
+      {!!winner && winner == "o" && <div className="result">You Lost!</div>}
       {!!winner && winner == "Draw" && <div className="result">Draw!</div>}
       <button className="reset" onClick={resetGame}>
         Reset Game
